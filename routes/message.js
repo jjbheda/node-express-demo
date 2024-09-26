@@ -55,9 +55,9 @@ const chatDetail = async (conversation_id, chat_id) => {
       if (item) {
         console.log(item.content);
         if (item.content.trim() !== "暂无数据") {
-          const path = item.content.trim();
-          // 处理成功结果
-          return path
+          return item.content.trim()
+        } else {
+          return " nothing null"
         }
       } else {
         setTimeout(() => {
