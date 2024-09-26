@@ -21,7 +21,7 @@ const sendMessage = async (data) => {
     });
     const res = await response.json();
     if (res.data.status === "in_progress") {
-        console.log("sendMessage lpg:", res);
+        console.error("sendMessage lpg:", res);
       setTimeout(() => {
         chatDetail(res.data.conversation_id, res.data.id);
       }, 1000);
