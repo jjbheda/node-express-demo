@@ -40,7 +40,7 @@ const chatDetail = async (conversation_id, chat_id) => {
   const url = `https://api.coze.cn/v3/chat/message/list?conversation_id=${conversation_id}&chat_id=${chat_id}`;
   
   try {
-    console.error("chatDetail -----:", res);
+    console.error("chatDetail -----:");
     const response = await fetch(url, {
       headers: {
         Authorization: "Bearer pat_3ss8PLXKFHcMNuBUmzQ8ExhecGsApUg7gFk0LfNKT93w5Yj9cqfoneMeTeZSa9iR",
