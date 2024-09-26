@@ -70,5 +70,41 @@ const sendMessage = async (data) => {
   }
 };
 
+router.post('/send-message', async (req, res) => {
+  const { user_id, bot_id, content } = req.body;
+  
+  const data = {
+    bot_id: bot_id,
+    user_id: user_id,
+    stream: false,
+    auto_save_history: true,
+    additional_messages: [{
+      role: "user",
+      content: content,
+      content_type: "text",
+    }],
+  };
+
+  try {
+    const result = await sendMessage(data);
+    if (result) {
+      res.json(result);
+    } else {
+      // 如果结果为空，可以设置一个超时机制或其他处理方式
+      const timeout = setTimeout(() => {
+        // 处理超时逻辑，比如返回一个错误响应
+        res.status(500).json({ error: 'Request timed out' });
+      }, 10000); // 10秒后超时
+
+      // 此处可以继续轮询，直到获取有效结果
+      // 需要在 chatDetail 中调用回调时清除超时
+    }
+  } catch (error) {
+    console.error("Error processing message:", error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 
 module.exports = router;
