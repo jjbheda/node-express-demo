@@ -11,7 +11,6 @@ const sendMessage = async (data) => {
     Connection: "keep-alive",
     Accept: "*/*",
   };
-
   const url = "https://api.coze.cn/v3/chat"; // 替换为你的API端点
 
   try {
@@ -21,8 +20,8 @@ const sendMessage = async (data) => {
       body: JSON.stringify(data),
     });
     const res = await response.json();
-    
     if (res.data.status === "in_progress") {
+        console.log("sendMessage lpg:", res);
       setTimeout(() => {
         chatDetail(res.data.conversation_id, res.data.id);
       }, 1000);
