@@ -50,7 +50,6 @@ const chatDetail = async (conversation_id, chat_id) => {
       mode: "cors",
     });
     const res = await response.json();
-    
     if (res.data) {
       const item = res.data.filter((item) => item.type === "answer")?.[0];
       if (item) {
@@ -58,6 +57,7 @@ const chatDetail = async (conversation_id, chat_id) => {
         if (item.content.trim() !== "暂无数据") {
           const path = item.content.trim();
           // 处理成功结果
+          return path
         }
       } else {
         setTimeout(() => {
