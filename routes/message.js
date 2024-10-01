@@ -17,7 +17,7 @@ const chatDetail = async (conversation_id, chat_id) => {
     try {
       const response = await fetch(url, {
         headers: {
-          Authorization: authorization_common,
+          Authorization: authorization_special,
           "Content-Type": "application/json",
         },
         method: "POST",
@@ -52,7 +52,7 @@ const sendMessage = async (data) => {
   const { default: fetch } = await import('node-fetch');
 
   const headers = {
-    Authorization: authorization_common,
+    Authorization: authorization_special,
     "Content-Type": "application/json",
   };
   const url = "https://api.coze.cn/v3/chat";
