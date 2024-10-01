@@ -1,5 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const authorization_common = "Bearer pat_3ss8PLXKFHcMNuBUmzQ8ExhecGsApUg7gFk0LfNKT93w5Yj9cqfoneMeTeZSa9iR"
+const authorization_special = "Bearer pat_XXF5tdQO8XXejAlCN5VMBDjAhdWch9DnNtLOeZAPFrhLLC7pi2CPetmlSKM5ooTQ"
+
+
+
+
 
 const chatDetail = async (conversation_id, chat_id) => {
   // 动态导入node-fetch
@@ -11,7 +17,7 @@ const chatDetail = async (conversation_id, chat_id) => {
     try {
       const response = await fetch(url, {
         headers: {
-          Authorization: "Bearer pat_3ss8PLXKFHcMNuBUmzQ8ExhecGsApUg7gFk0LfNKT93w5Yj9cqfoneMeTeZSa9iR",
+          Authorization: authorization_common,
           "Content-Type": "application/json",
         },
         method: "POST",
@@ -46,7 +52,7 @@ const sendMessage = async (data) => {
   const { default: fetch } = await import('node-fetch');
 
   const headers = {
-    Authorization: "Bearer ppat_XXF5tdQO8XXejAlCN5VMBDjAhdWch9DnNtLOeZAPFrhLLC7pi2CPetmlSKM5ooTQ",
+    Authorization: authorization_common,
     "Content-Type": "application/json",
   };
   const url = "https://api.coze.cn/v3/chat";
