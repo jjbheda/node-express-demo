@@ -46,7 +46,7 @@ const sendMessage = async (data) => {
   const { default: fetch } = await import('node-fetch');
 
   const headers = {
-    Authorization: "Bearer pat_3ss8PLXKFHcMNuBUmzQ8ExhecGsApUg7gFk0LfNKT93w5Yj9cqfoneMeTeZSa9iR",
+    Authorization: "Bearer ppat_XXF5tdQO8XXejAlCN5VMBDjAhdWch9DnNtLOeZAPFrhLLC7pi2CPetmlSKM5ooTQ",
     "Content-Type": "application/json",
   };
   const url = "https://api.coze.cn/v3/chat";
